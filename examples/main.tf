@@ -1,18 +1,3 @@
-# terraform-provider-lightlytics
-Terraform Provider for Lightlytics
-
-## How to build/install
-
-Run the following
-
-`make install`
-
-
-## Usage
-
-Configure provider credentials and host
-
-```
 terraform {
   required_providers {
     lightlytics = {
@@ -23,23 +8,18 @@ terraform {
 }
 
 provider "lightlytics" {
+  alias = "test-integration"
   host = "https://<env_name>.lightlytics.com"
-  username = ""
-  password = ""
+  username = "<username>"
+  password = "<password>"
+  workspace_id = ""
 }
-```
 
-Configure AWS account
-
-
-```
 resource "lightlytics_account" "aws" {
+  provider = lightlytics.test-integration
   account_type = "AWS"
   aws_account_id = "123234818678"
   display_name = "test-user"
-  aws_regions = ["us-east-1", "us-east-2"]
+  aws_regions = ["us-east-1", "us-west-1", "us-east-2"]
   stack_region = "us-east-1"
 }
-```
-
-Find more examples in `/examples` 
