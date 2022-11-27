@@ -2,6 +2,7 @@
 The Lightlytics Terraform provider is used to connect your cloud account to Lightlytics and integrate with various available features.
 
 In order to use this provider, you must have an active account with [Lightlytics](https://www.lightlytics.com).
+
 You can [start free](https://www.lightlytics.com/treemium) or check out our [plans](https://www.lightlytics.com/plans) and [contact us](https://www.lightlytics.com/contact-us) or [book a demo](https://www.lightlytics.com/book-demo).
 
 
@@ -9,7 +10,7 @@ You can [start free](https://www.lightlytics.com/treemium) or check out our [pla
 1. Clone [this](terraform-provider-lightlytics) repository
 2. Navigate to the provider directory
 3. Install the provider by running the following command:
-   `make install`
+`make install`
 
 
 ## Usage
