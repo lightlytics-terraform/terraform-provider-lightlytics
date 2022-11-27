@@ -10,7 +10,7 @@ You can [start free](https://www.lightlytics.com/treemium) or check out our [pla
 1. Clone [this](terraform-provider-lightlytics) repository
 2. Navigate to the provider directory
 3. Install the provider by running the following command:
-`make install`
+```make install```
 
 
 ## Usage
