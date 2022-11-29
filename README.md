@@ -50,8 +50,8 @@ terraform {
 
 provider "lightlytics" {
   host = "https://<env_name>.lightlytics.com"
-  username = ""
-  password = ""
+  username = "<Your_Lightlytics_Login_Email>"
+  password = "<Your_Lightlytics_Login_Password>"
 }
 ```
 
@@ -61,8 +61,8 @@ provider "lightlytics" {
 ```hcl
 resource "lightlytics_account" "aws" {
   account_type = "AWS"
-  aws_account_id = "123456789"
-  display_name = "test-user"
+  aws_account_id = "<Your_AWS_Account_ID>"
+  display_name = "<Your_Desired_Lightlytics_Integration_Display_Name>"
   stack_region = "us-east-1"
   aws_regions = ["us-east-1", "us-east-2"]
 }
