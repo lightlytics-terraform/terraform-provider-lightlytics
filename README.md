@@ -10,9 +10,8 @@ You can [start free](https://www.lightlytics.com/treemium) or check out our [pla
 
 
 ## Requirements
--
--
--
+- A Lightlytics account
+- Credentials to Lightlytics platform (Email & Password)
 
 
 ## Building the provider
@@ -28,11 +27,11 @@ make install
 | :-------------------------------- | :------------------------------------------------------------------------- | :-------------------------------------------------- |:---------------|:--------- |:--------|
 | host                              | Your environment URL including https://                                    | e.g `https://org.lightlytics.com`                   | `string`       | Yes       | n/a     |
 | username                          | Your Lightlytics user Email                                                |                                                     | `string`       | Yes       | n/a     |
-| password                          | Your Lightlytics user password                                             |                                                     | `string`       | Yes       | n/a     | 
-| aws_account_id                    | Your AWS account ID                                                        |                       			                   | `string`       | Yes       | n/a     |                                              
+| password                          | Your Lightlytics user password                                             |                                                     | `string`       | Yes       | n/a     |
+| aws_account_id                    | Your AWS account ID                                                        |                       			                   | `string`       | Yes       | n/a     |
 | display_name                      | Your integration display name within Lightlytics platform                  |                                                     | `string`       | Yes       | n/a     |
-| aws_regions                       | List of desired regions to be scanned                                      | us-east-1 region is mandatory for the integration   | `list(string)` | Yes       | n/a     |
-| stack_region                      | The primary region where Lightlytics read access resources will be created |                                                     | `string`       | Yes       | n/a     | 
+| stack_region                      | The primary region where Lightlytics read access resources will be created |                                                     | `string`       | Yes       | n/a     |
+| aws_regions                       | List of desired regions to be scanned                                      | us-east-1 region is mandatory for the integration   | `list(string)` | Yes       | n/a     | 
 
 
 
@@ -62,11 +61,20 @@ provider "lightlytics" {
 ```hcl
 resource "lightlytics_account" "aws" {
   account_type = "AWS"
-  aws_account_id = "123234818678"
+  aws_account_id = "123456789"
   display_name = "test-user"
-  aws_regions = ["us-east-1", "us-east-2"]
   stack_region = "us-east-1"
+  aws_regions = ["us-east-1", "us-east-2"]
 }
 ```
 
-Find more examples in `/examples` 
+Community
+---------
+- Join Lightlytics community on [Slack](https://join.slack.com/t/lightlyticscommunity/shared_invite/zt-1f7dk2yo7-xBTOU_o4tOnAjoFxfHVF8Q)
+
+
+Getting Help
+------------
+Please use these resources for getting help:
+- [Slack](https://join.slack.com/t/lightlyticscommunity/shared_invite/zt-1f7dk2yo7-xBTOU_o4tOnAjoFxfHVF8Q)
+- Email: support@lightlytics.com
