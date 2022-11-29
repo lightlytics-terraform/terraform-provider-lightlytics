@@ -26,8 +26,8 @@ make install
 | Variable Name                     | Description                                                                | Notes                                               | Type           | Required? | Default |
 | :-------------------------------- | :------------------------------------------------------------------------- | :-------------------------------------------------- |:---------------|:--------- |:--------|
 | host                              | Your environment URL including https://                                    | e.g `https://org.lightlytics.com`                   | `string`       | Yes       | n/a     |
-| username                          | Your Lightlytics user Email                                                |                                                     | `string`       | Yes       | n/a     |
-| password                          | Your Lightlytics user password                                             |                                                     | `string`       | Yes       | n/a     |
+| username                          | Your Lightlytics login Email                                                |                                                     | `string`       | Yes       | n/a     |
+| password                          | Your Lightlytics login password                                             |                                                     | `string`       | Yes       | n/a     |
 | aws_account_id                    | Your AWS account ID                                                        |                       			                   | `string`       | Yes       | n/a     |
 | display_name                      | Your integration display name within Lightlytics platform                  |                                                     | `string`       | Yes       | n/a     |
 | stack_region                      | The primary region where Lightlytics read access resources will be created |                                                     | `string`       | Yes       | n/a     |
