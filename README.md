@@ -1,4 +1,7 @@
-# terraform-provider-lightlytics
+## Lightlytics Terraform Provider
+
+
+
 The Lightlytics Terraform provider is used to connect your cloud account to Lightlytics and integrate with various available features.
 
 In order to use this provider, you must have an active account with [Lightlytics](https://www.lightlytics.com).
@@ -13,6 +16,18 @@ You can [start free](https://www.lightlytics.com/treemium) or check out our [pla
 ```
 make install
 ```
+
+## Inputs
+| Variable Name                     | Description                                               | Notes                              | Type           | Required? | Default |
+| :-------------------------------- | :-------------------------------------------------------  | :----------------------------------|:---------------|:--------- |:--------|
+| host                              | Your environment URL including https://                   | e.g `https://org.lightlytics.com`  | `string`       | Yes       | n/a     |
+| username                          | Your Lightlytics user Email                               |                                    | `string`       | Yes       | n/a     |
+| password                          | Your Lightlytics user password                            |                                    | `string`       | Yes       | n/a     |                                                                              |
+| aws_account_id                    | Your AWS account ID                                       |                       			 | `string`       | Yes       | n/a     |                                              
+| display_name                      | Your integration display name within Lightlytics platform |                                    | `string`       | Yes       | n/a     |
+| aws_regions                       | Desired regions to be scanned                             |                                    | `list(string)` | Yes       | n/a     |
+| stack_region                      | The main region for the IAM Role to be deployed           |                                    | `string`       | Yes       | n/a     |
+
 
 
 ## Usage
