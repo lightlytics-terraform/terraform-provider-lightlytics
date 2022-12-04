@@ -22,18 +22,6 @@ You can [start free](https://www.lightlytics.com/treemium) or check out our [pla
 make install
 ```
 
-## Inputs
-| Variable Name                     | Description                                                                | Notes                                               | Type           | Required? | Default |
-| :-------------------------------- | :------------------------------------------------------------------------- | :-------------------------------------------------- |:---------------|:--------- |:--------|
-| host                              | Your environment URL including https://                                    | e.g `https://org.lightlytics.com`                   | `string`       | Yes       | n/a     |
-| username                          | Your Lightlytics login Email                                                |                                                     | `string`       | Yes       | n/a     |
-| password                          | Your Lightlytics login password                                             |                                                     | `string`       | Yes       | n/a     |
-| aws_account_id                    | Your AWS account ID                                                        |                       			                   | `string`       | Yes       | n/a     |
-| display_name                      | Your integration display name within Lightlytics platform                  |                                                     | `string`       | Yes       | n/a     |
-| stack_region                      | The primary region where Lightlytics read access resources will be created |                                                     | `string`       | Yes       | n/a     |
-| aws_regions                       | List of desired regions to be scanned                                      | us-east-1 region is mandatory for the integration   | `list(string)` | Yes       | n/a     | 
-
-
 
 ## Usage
 - Configure Lightlytics provider host and credentials
@@ -67,6 +55,19 @@ resource "lightlytics_account" "aws" {
   aws_regions = ["us-east-1", "us-east-2"]
 }
 ```
+
+
+## Inputs
+| Variable Name                     | Description                                                                | Notes                                               | Type           | Required? | Default |
+| :-------------------------------- | :------------------------------------------------------------------------- | :-------------------------------------------------- |:---------------|:--------- |:--------|
+| host                              | Your environment URL including https://                                    | e.g `https://org.lightlytics.com`                   | `string`       | Yes       | n/a     |
+| username                          | Your Lightlytics login Email                                                |                                                     | `string`       | Yes       | n/a     |
+| password                          | Your Lightlytics login password                                             |                                                     | `string`       | Yes       | n/a     |
+| aws_account_id                    | Your AWS account ID                                                        |                       			                   | `string`       | Yes       | n/a     |
+| display_name                      | Your integration display name within Lightlytics platform                  |                                                     | `string`       | Yes       | n/a     |
+| stack_region                      | The primary region where Lightlytics read access resources will be created |                                                     | `string`       | Yes       | n/a     |
+| aws_regions                       | List of desired regions to be scanned                                      | us-east-1 region is mandatory for the integration   | `list(string)` | Yes       | n/a     | 
+
 
 Community
 ---------
