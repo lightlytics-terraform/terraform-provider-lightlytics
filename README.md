@@ -15,7 +15,7 @@ You can [start free](https://www.lightlytics.com/treemium) or check out our [pla
 
 
 ## Building the provider
-1. Clone [this](terraform-provider-lightlytics) repository
+1. Clone the [terraform-provider-lightlytics](https://github.com/lightlytics-terraform/terraform-provider-lightlytics) repository
 2. Navigate to the provider directory
 3. Install the provider by running the following command:
 ```
