@@ -37,7 +37,7 @@ terraform {
 }
 
 provider "lightlytics" {
-  host           = "https://<env_name>.lightlytics.com"
+  host           = "<https://<env_name>.lightlytics.com>"
   username       = "<Your_Lightlytics_Login_Email>"
   password       = "<Your_Lightlytics_Login_Password>"
   workspace_id   = "<Your_Lightlytics_Workspace_ID>"  ## Can be obtained from Lightlytics platform, if not specified, it will use the first WS
