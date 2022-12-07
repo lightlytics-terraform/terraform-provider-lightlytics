@@ -56,7 +56,7 @@ func kubernetesResourceAccountCreate(ctx context.Context, d *schema.ResourceData
 	eks_arn := d.Get("eks_arn").(string)
 
 	query := `
-		mutation CreateKubernetes(display_name: String!, eks_arn: String!) {
+		mutation CreateKubernetes($display_name: String, $eks_arn: String) {
 			createKubernetes(kubernetes: {
 				display_name: $display_name,
 				eks_arn: $eks_arn,
@@ -115,7 +115,7 @@ func kubernetesResourceAccountRead(ctx context.Context, d *schema.ResourceData, 
 		return diag.FromErr(err)
 	}
 
-	kubernetesAccounts := data["Kubernetes"].([]interface{})
+	kubernetesAccounts := data["kubernetes"].([]interface{})
 
 	for _, acc := range kubernetesAccounts {
 

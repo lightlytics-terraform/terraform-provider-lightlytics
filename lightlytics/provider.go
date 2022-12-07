@@ -34,7 +34,7 @@ func Provider() *schema.Provider {
 		},
 		ResourcesMap: map[string]*schema.Resource{
 			"lightlytics_account": resourceAccount(),
-			"kubernetes_lightlytics_account": kubernetesResourceAccount(),
+			"lightlytics_kubernetes_account": kubernetesResourceAccount(),
 		},
 
 		DataSourcesMap: map[string]*schema.Resource{
