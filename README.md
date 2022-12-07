@@ -30,7 +30,7 @@ make install
 terraform {
   required_providers {
     lightlytics  = {
-      version    = "0.2"
+      version    = "0.3"
       source     = "lightlytics.com/api/lightlytics"
     }
   }
@@ -52,6 +52,11 @@ resource "lightlytics_account" "aws" {
   stack_region   = "us-east-1"
   aws_regions    = ["us-east-1", "us-east-2"]
 }
+
+resource "lightlytics_kubernetes_account" "k8s" {
+  display_name   = "<Your_Desired_Lightlytics_Kubernetes_Integration_Display_Name>"
+  eks_arn   = "<Your_EKS_ARN>"
+}
 ```
 
 
@@ -66,6 +71,7 @@ resource "lightlytics_account" "aws" {
 | display_name                      | Your integration display name within Lightlytics platform                  |                                                     | `string`       | Yes       | n/a     |
 | stack_region                      | The primary region where Lightlytics read access resources will be created |                                                     | `string`       | Yes       | n/a     |
 | aws_regions                       | List of desired regions to be scanned                                      | us-east-1 region is mandatory for the integration   | `list(string)` | Yes       | n/a     | 
+
 
 
 Documentation
