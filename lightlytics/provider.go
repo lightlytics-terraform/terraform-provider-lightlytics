@@ -26,15 +26,17 @@ func Provider() *schema.Provider {
 				Sensitive:   true,
 				DefaultFunc: schema.EnvDefaultFunc("LIGHTLYTICS_PASSWORD", nil),
 			},
-            "workspace_id": &schema.Schema{
+            		"workspace_id": &schema.Schema{
 				Type:        schema.TypeString,
 				Optional:    true,
-                DefaultFunc: schema.EnvDefaultFunc("WORKSPACE_ID", nil),
+                		DefaultFunc: schema.EnvDefaultFunc("WORKSPACE_ID", nil),
 			},
 		},
 		ResourcesMap: map[string]*schema.Resource{
 			"lightlytics_account": resourceAccount(),
+			"kubernetes_lightlytics_account": kubernetesResourceAccount(),
 		},
+
 		DataSourcesMap: map[string]*schema.Resource{
 		},
 		ConfigureContextFunc: providerConfigure,
@@ -45,7 +47,7 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 	host := d.Get("host").(string)
 	username := d.Get("username").(string)
 	password := d.Get("password").(string)
-    workspace_id := d.Get("workspace_id").(string)
+	workspace_id := d.Get("workspace_id").(string)
 
 	var diags diag.Diagnostics
 
