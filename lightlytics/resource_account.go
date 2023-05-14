@@ -11,8 +11,8 @@ type Account struct {
 	_id string
 	display_name string
 	account_type string
-	aws_account_id string
-	aws_regions []string
+	cloud_account_id string
+	cloud_regions []string
 	stack_region string
 	template_url string
 }
@@ -32,11 +32,11 @@ func resourceAccount() *schema.Resource {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"aws_account_id": &schema.Schema{
+			"cloud_account_id": &schema.Schema{
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"aws_regions": &schema.Schema{
+			"cloud_regions": &schema.Schema{
 				Type:     schema.TypeList,
 				Elem: 	  &schema.Schema{
 				    			Type: schema.TypeString,
@@ -75,17 +75,17 @@ func resourceAccountCreate(ctx context.Context, d *schema.ResourceData, m interf
 
 	account_type := d.Get("account_type").(string)
 	display_name := d.Get("display_name").(string)
-	aws_account_id := d.Get("aws_account_id").(string)
-	aws_regions := d.Get("aws_regions").([]interface{})
+	cloud_account_id := d.Get("cloud_account_id").(string)
+	cloud_regions := d.Get("cloud_regions").([]interface{})
 	stack_region := d.Get("stack_region").(string)
 
 	query := `
-		mutation CreateAccount($account_type: CloudProvider!, $aws_account_id: String!, $display_name: String, $aws_regions: [String], $stack_region: String) {
+		mutation CreateAccount($account_type: CloudProvider!, $cloud_account_id: String!, $display_name: String, $cloud_regions: [String], $stack_region: String) {
 			createAccount(account: {
 				account_type: $account_type,
-				aws_account_id: $aws_account_id,
+				cloud_account_id: $cloud_account_id,
 				display_name: $display_name,
-				aws_regions: $aws_regions,
+				cloud_regions: $cloud_regions,
 				stack_region: $stack_region
 			  })
 			{
@@ -99,9 +99,9 @@ func resourceAccountCreate(ctx context.Context, d *schema.ResourceData, m interf
 
 	variables := map[string]interface{}{
         "account_type": account_type,
-    	"aws_account_id": aws_account_id,
+    	"cloud_account_id": cloud_account_id,
     	"display_name": display_name,
-    	"aws_regions": aws_regions,
+    	"cloud_regions": cloud_regions,
     	"stack_region": stack_region}
 
 	data, err := c.doRequest(query, variables)
@@ -135,9 +135,9 @@ func resourceAccountRead(ctx context.Context, d *schema.ResourceData, m interfac
 			accounts {
 				_id
 				account_type
-				aws_account_id
+				cloud_account_id
 				display_name
-				aws_regions
+				cloud_regions
 				stack_region
 				template_url
 				external_id
@@ -161,8 +161,8 @@ func resourceAccountRead(ctx context.Context, d *schema.ResourceData, m interfac
 		if account["_id"] == accountID {
 			d.Set("display_name", account["display_name"])
 			d.Set("account_type", account["account_type"])
-			d.Set("aws_account_id", account["aws_account_id"])
-			d.Set("aws_regions", account["aws_regions"])
+			d.Set("cloud_account_id", account["cloud_account_id"])
+			d.Set("cloud_regions", account["cloud_regions"])
 			d.Set("stack_region", account["stack_region"])
 			d.Set("template_url", account["template_url"])
 			d.Set("external_id", account["external_id"])
@@ -181,7 +181,7 @@ func resourceAccountUpdate(ctx context.Context, d *schema.ResourceData, m interf
 
 	accountID := d.Id()
 
-	if d.HasChange("aws_regions") || d.HasChange("display_name") {
+	if d.HasChange("cloud_regions") || d.HasChange("display_name") {
 		query := `
 			mutation UpdateAccount($id: ID!, $account: AccountUpdateInput) {
 				updateAccount(id: $id, account: $account) {
@@ -190,12 +190,12 @@ func resourceAccountUpdate(ctx context.Context, d *schema.ResourceData, m interf
 			}`
 
 		display_name := d.Get("display_name").(string)
-		aws_regions := d.Get("aws_regions").([]interface{})
+		cloud_regions := d.Get("cloud_regions").([]interface{})
 
 		variables := map[string]interface{}{
 			"id": accountID,
 			"account": map[string]interface{}{
-				"aws_regions": aws_regions,
+				"cloud_regions": cloud_regions,
 				"display_name": display_name }}
 
 		_, err := c.doRequest(query, variables)

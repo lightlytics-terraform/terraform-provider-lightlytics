@@ -18,8 +18,8 @@ provider "lightlytics" {
 resource "lightlytics_account" "aws" {
   provider = lightlytics.test-integration
   account_type = "AWS"
-  aws_account_id = "123234818678"
+  cloud_account_id = "123234818678"
   display_name = "test-user"
-  aws_regions = ["us-east-1", "us-west-1", "us-east-2"]
+  cloud_regions = ["us-east-1", "us-west-1", "us-east-2"]
   stack_region = "us-east-1"
 }
